@@ -71,7 +71,7 @@ let manageSockets = function(socket) {
     if (socketIdToUsername[socketId] !== undefined) {
       roomId = socketIdToUsername[socketId].room.roomId;
       let currentRoom = roomsList.filter(room => room.roomId === roomId)[0];
-      if (currentRoom.members) {
+      if (currentRoom && currentRoom.members) {
         currentRoom.members.map(member => {
           if (member.socketId === socketId) {
             member.username = null;
