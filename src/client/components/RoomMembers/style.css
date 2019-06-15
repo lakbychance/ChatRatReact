@@ -1,0 +1,15 @@
+#roomMembers {
+  width: 50%;
+  height: 50em;
+  overflow: auto;
+}
+#member {
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  color: white;
+  border-radius: 20px;
+  background: #6bc1ab;
+  overflow: auto;
+  margin-top: 10px;
+}

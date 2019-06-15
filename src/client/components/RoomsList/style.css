@@ -1,0 +1,75 @@
+#roomsList {
+  width: 34%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: rgb(42, 53, 80);
+  border-radius: 20px;
+  margin-left: 1%;
+  overflow: auto;
+  height: 100vh;
+}
+#roomsList h1 {
+  color: white;
+}
+#room {
+  align-self: center;
+  margin-top: 10px;
+  width: 80%;
+  height: 40px;
+  display: flex;
+}
+#room button {
+  width: 20%;
+  font-size: 20px;
+  background: rgb(145, 51, 52);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+#room button:focus {
+  outline: none;
+}
+#roomDetails {
+  width: 80%;
+  font-size: 16px;
+  border-radius: 10px !important;
+  display: flex;
+  background: #385584;
+  color: white;
+}
+#availableroomname {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-x: scroll;
+}
+#roomadmin {
+  width: 100%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-x: scroll;
+}
+#joinUsername {
+  width: 40%;
+  height: 25px;
+  border-radius: 10px;
+  border: 1px solid;
+  align-self: center;
+  padding-left: 5px;
+  border: none;
+  outline: none !important;
+  box-shadow: 0 !important;
+}
+#joinUsernameButton {
+  background: rgb(146, 52, 52);
+  color: white;
+  height: 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  margin-left: 2%;
+}

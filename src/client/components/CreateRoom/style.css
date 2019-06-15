@@ -1,0 +1,53 @@
+#createRoom {
+  width: 65%;
+  height: 100vh;
+  /* background: #4d4569; */
+  background: url("../../../assets/images/ChatRat.gif") no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+#createRoomForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25%;
+  align-items: center;
+}
+#createRoomForm h1,
+label {
+  color: white;
+}
+
+#createRoomForm input {
+  width: 40%;
+  height: 25px;
+  border-radius: 20px;
+  padding-left: 5px;
+  margin-top: 10px;
+  border: none;
+}
+#nameLabel {
+  margin-top: 10px;
+}
+#createRoomForm input:focus {
+  outline: none;
+}
+/* #createRoomForm :nth-child(3) {
+  margin-top: 10px;
+}
+#createRoomForm :nth-child(6) {
+  margin-top: 10px;
+} */
+#createRoomButton {
+  min-width: 15%;
+  background: rgb(64, 156, 90);
+  border-radius: 20px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+#createRoomButton:focus {
+  outline: none;
+}
