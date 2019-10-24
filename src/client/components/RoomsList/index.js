@@ -58,7 +58,6 @@ class RoomsList extends Component {
                   <div id="availableroomname">
                     {room.roomname}-{room.roomId}
                   </div>
-                  {/* <div id="roomadmin">Admin : {room.roomAdmin.username}</div> */}
                 </div>
                 <button onClick={this.handleJoinRoom.bind(this, room)}>
                   Join

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./style.css";
-import { withRouter } from "react-router";
 import {
   createRoom,
   populateRoomsList,
@@ -30,13 +29,6 @@ class CreateRoom extends Component {
       "roomCreated",
       function(roomsList, room) {
         this.props.createRoom(roomsList);
-        // if (room.roomAdmin.socketId === socket.id) {
-        //   let username = this.state.username;
-        //   this.props.populateRoom(room);
-        //   this.props.populateUsername(username);
-        //   socket.emit("joinRoom", room, username);
-        //   this.props.history.replace("/chatRoom");
-        // }
       }.bind(this)
     );
   }
@@ -45,7 +37,6 @@ class CreateRoom extends Component {
   }
   createNewRoom() {
     let roomname = this.state.roomname;
-    //let username = this.state.username;
     let socket = this.props.socket;
     if (roomname !== "") {
       let data = {
@@ -67,12 +58,6 @@ class CreateRoom extends Component {
             onChange={this.handleRoomName}
             value={this.state.roomname}
           />
-          {/* <label id="nameLabel">User Name</label>
-          <input
-            id="username"
-            placeholder="Enter user name"
-            onChange={this.handleUserName}
-          /> */}
           <button id="createRoomButton" onClick={this.createNewRoom}>
             Create Room
           </button>
@@ -94,4 +79,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(CreateRoom));
+)(CreateRoom);

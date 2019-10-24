@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import ChatBox from "../../App";
 import { connect } from "react-redux";
 import { populateRoom } from "../../action-creators/action-creator";
 import "./style.css";
 class RoomMembers extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   room: this.props.room
-    // };
   }
   componentDidMount() {
     let socket = this.props.socket;
@@ -16,7 +12,6 @@ class RoomMembers extends Component {
       "updatedRoom",
       function(room) {
         this.props.populateRoom(room);
-        //this.setState({ room: room });
       }.bind(this)
     );
     socket.on(
@@ -27,7 +22,6 @@ class RoomMembers extends Component {
     );
   }
   render() {
-    // console.log(this.state.room.members);
     return (
       <div id="roomMembers">
         {this.props.room &&

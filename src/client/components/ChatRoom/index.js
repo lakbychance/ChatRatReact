@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ChatBox from "../../App";
+import ChatBox from "../ChatBox/index";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import RoomMembers from "../RoomMembers/index";
 import "./style.css";
 class ChatRoom extends Component {
@@ -28,4 +27,4 @@ class ChatRoom extends Component {
 const mapStateToProps = store => {
   return store;
 };
-export default connect(mapStateToProps)(withRouter(ChatRoom));
+export default connect(mapStateToProps)(ChatRoom);

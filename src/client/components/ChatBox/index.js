@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import socketIOClient from "socket.io-client";
-import "../../style.css";
+import "./style.css";
 import { connect } from "react-redux";
 class ChatBox extends Component {
   constructor(props) {
     super(props);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleChatMessage = this.handleChatMessage.bind(this);
-    //this.joinOrLeft=this.joinOrLeft.bind(this)
   }
   componentDidMount() {
     let socket = this.props.socket;
@@ -27,13 +25,6 @@ class ChatBox extends Component {
         }
       }.bind(this)
     );
-    // socket.on(
-    //   "join",
-    //   function(joinMessage) {
-    //     this.joinOrLeft(joinMessage, "join");
-    //   }.bind(this)
-    // );
-
     socket.on(
       "chatMessage",
       function(msg) {
