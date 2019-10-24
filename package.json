@@ -1,5 +1,5 @@
 {
-  "name": "socket-chat-example",
+  "name": "chat-rat",
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
@@ -19,10 +19,7 @@
     "webpack-dev-server": "^3.7.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode=development"
-  },
-  "engines": {
-    "node": "8.11.3"
+    "start": "webpack-dev-server --mode=development & node server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
