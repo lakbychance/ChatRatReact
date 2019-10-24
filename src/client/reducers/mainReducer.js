@@ -1,7 +1,7 @@
 import actionTypes from "../action-types/action-types";
 import socketIOClient from "socket.io-client";
 let initialState = {
-  socket: socketIOClient(`http://${window.location.hostname}:5000`),
+  socket: socketIOClient(`http://127.0.0.1:5000`),
   roomsList: [],
   username: "",
   room: {}
