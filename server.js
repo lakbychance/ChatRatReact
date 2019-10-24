@@ -10,10 +10,7 @@ function generateRoomId() {
 }
 function createRoom(data, socket) {
   let roomId = generateRoomId();
-  //let socketId = socket.id;
   let members = [];
-  //   let user = {};
-  //   user = { socketId: socketId, username: data.username };
   let room = {
     roomId: roomId,
     roomname: data.roomname,
@@ -39,7 +36,6 @@ let manageSockets = function(socket) {
         }
       });
     }
-    roomsList.map(room => console.log(room.roomname, room.members));
     socket.broadcast
       .to(room.roomId)
       .emit("joinRoom", `${username} has joined the conversation`);
@@ -55,16 +51,7 @@ let manageSockets = function(socket) {
     roomsList.push(room);
     io.emit("roomCreated", roomsList, room);
   });
-  //   socket.on("disconnect", function() {
-  //     let socketId = socket.id;
 
-  //     if (socketIdToUsername[socketId] !== undefined) {
-  //       socket.broadcast.emit(
-  //         "disconnected",
-  //         `${socketIdToUsername[socketId]} has left the conversation`
-  //       );
-  //     }
-  //   });
   socket.on("disconnecting", () => {
     let socketId = socket.id;
     let roomId = "";
