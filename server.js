@@ -80,6 +80,6 @@ let manageSockets = function(socket) {
   });
 };
 io.on("connection", manageSockets);
-http.listen(8082, function() {
-  console.log("Listening on port 8082");
+http.listen(5000, function() {
+  console.log("Listening on port 5000");
 });
