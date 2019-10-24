@@ -4,4 +4,4 @@
 <hr/>
 
 ### Running:
-**Run `npm install` for node modules. In case it fails, delete package-lock.json file and try again. Run `npm start` to start frontend and run `node server.js` to start the backend.** 
+**Run `npm install` for node modules. In case it fails, delete package-lock.json file and try again. After successful installation, run `npm start` to start the application.** 
