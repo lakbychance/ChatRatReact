@@ -29,7 +29,7 @@
     "node": "10.16.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode=development & node server.js",
+    "start": "node server.js",
     "prod": "webpack --env.mode production"
   }
 }
