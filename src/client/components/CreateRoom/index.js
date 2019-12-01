@@ -11,9 +11,10 @@ class CreateRoom extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomname: ""
+      roomname: "",
+      roomkey: ""
     };
-    this.handleRoomName = this.handleRoomName.bind(this);
+    this.handleRoomDetails = this.handleRoomDetails.bind(this);
     this.createNewRoom = this.createNewRoom.bind(this);
   }
   componentDidMount() {
@@ -32,19 +33,22 @@ class CreateRoom extends Component {
       }.bind(this)
     );
   }
-  handleRoomName(e) {
-    this.setState({ roomname: e.target.value });
+  handleRoomDetails(e) {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
   }
   createNewRoom() {
-    let roomname = this.state.roomname;
-    let socket = this.props.socket;
-    if (roomname !== "") {
+    const roomname = this.state.roomname;
+    const roomkey = this.state.roomkey;
+    const socket = this.props.socket;
+    if (roomname !== "" && roomkey !== "") {
       let data = {
-        roomname: roomname
+        roomname: roomname,
+        roomkey: roomkey
       };
       socket.emit("createRoom", data);
     }
-    this.setState({ roomname: "" });
+    this.setState({ roomname: "", roomkey: "" });
   }
   render() {
     return (
@@ -54,9 +58,19 @@ class CreateRoom extends Component {
           <label id="roomLabel">Room Name</label>
           <input
             id="roomname"
+            name="roomname"
             placeholder="Enter room name"
-            onChange={this.handleRoomName}
+            onChange={this.handleRoomDetails}
             value={this.state.roomname}
+          />
+          <label id="roomLabel">Room Key</label>
+          <input
+            id="roomkey"
+            type="password"
+            name="roomkey"
+            placeholder="Enter room key"
+            onChange={this.handleRoomDetails}
+            value={this.state.roomkey}
           />
           <button id="createRoomButton" onClick={this.createNewRoom}>
             Create Room

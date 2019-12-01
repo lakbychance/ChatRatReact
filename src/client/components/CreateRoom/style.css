@@ -1,8 +1,9 @@
 #createRoom {
   width: 65%;
-  height: 100vh;
   /* background: #4d4569; */
-  background: url("../../../assets/images/ChatRat.gif") no-repeat;
+  /* background: url("../../../assets/images/ChatRat.gif") no-repeat; */
+  background: url("../../../assets/images/Frost.jpg");
+  /* background: black; */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
@@ -17,7 +18,17 @@
 label {
   color: white;
 }
-
+#roomLabel {
+  margin-top: 1%;
+}
+#createRoom #roomname,
+#createRoom #roomkey {
+  text-align: center;
+}
+#createRoom #roomname::placeholder,
+#createRoom #roomkey::placeholder {
+  text-align: center;
+}
 #createRoomForm input {
   width: 40%;
   height: 25px;
@@ -47,6 +58,11 @@ label {
   cursor: pointer;
   border: none;
   margin-top: 10px;
+  transition: ease 0.1s;
+}
+#createRoomButton:hover {
+  transform: scale(1.05);
+  background: #423982;
 }
 #createRoomButton:focus {
   outline: none;

@@ -1,6 +1,7 @@
 let express = require("express");
+let cors = require("cors");
 let app = express();
-let path = require("path");
+app.use(cors());
 let http = require("http").createServer(app);
 let io = require("socket.io")(http);
 let socketIdToUsername = {};
@@ -9,11 +10,13 @@ function generateRoomId() {
   return (Math.random() * 100000000).toFixed(0);
 }
 function createRoom(data, socket) {
-  let roomId = generateRoomId();
+  const roomId = generateRoomId();
+  const { roomkey, roomname } = data;
   let members = [];
   let room = {
     roomId: roomId,
-    roomname: data.roomname,
+    roomkey: roomkey,
+    roomname: roomname,
     members: members
   };
   return room;
@@ -21,6 +24,13 @@ function createRoom(data, socket) {
 let manageSockets = function(socket) {
   socket.on("getRoomsList", function() {
     socket.emit("takeRoomsList", roomsList);
+  });
+  socket.on("authorisedToJoinRoom", (room, key) => {
+    if (key === room.roomkey) {
+      socket.emit("canJoinRoom", { canJoinRoom: true, room: room });
+    } else {
+      socket.emit("canJoinRoom", { canJoinRoom: false, room: room });
+    }
   });
   socket.on("joinRoom", (room, username) => {
     socket.join(room.roomId);
@@ -73,7 +83,7 @@ let manageSockets = function(socket) {
     }
   });
   socket.on("chatMessage", function(msg, room) {
-    io.to(room.roomId).emit("chatMessage", msg);
+    io.to(room.roomId).emit("chatMessage", msg, socket.id);
   });
   socket.on("userTyping", function(typingMessage, room) {
     socket.broadcast.to(room.roomId).emit("userTyping", typingMessage);

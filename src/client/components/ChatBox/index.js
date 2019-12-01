@@ -27,13 +27,12 @@ class ChatBox extends Component {
     );
     socket.on(
       "chatMessage",
-      function(msg) {
-        console.log(msg);
+      function(msg, socketId) {
         let username = this.props.username;
         let allMessages = document.querySelectorAll("#messages");
         let messages = allMessages[allMessages.length - 1];
         let item = document.createElement("li");
-        if (msg.substr(0, msg.indexOf(":")) === username) {
+        if (socketId === socket.id) {
           item.style.textAlign = "right";
           item.className = "sender";
           item.innerText = msg.substr(msg.indexOf(":") + 1, msg.length);
@@ -63,7 +62,6 @@ class ChatBox extends Component {
     let username = this.props.username;
     let room = this.props.room;
     if (username !== "" && message !== "") {
-      console.log(username);
       socket.emit("chatMessage", username + ": " + message, room);
       socket.emit("userTyping", "", room);
       document.getElementById("m").value = "";
@@ -100,9 +98,6 @@ class ChatBox extends Component {
   render() {
     return (
       <div>
-        <div id="onlineUsers">
-          <ul id="listOfUsers" />
-        </div>
         <div id="typing" />
         <div id="chatBoard">
           <ul id="messages" />

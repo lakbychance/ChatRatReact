@@ -3,48 +3,97 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: rgb(42, 53, 80);
+  background-image: linear-gradient(270deg, #102254, #003e7a);
   border-radius: 20px;
   margin-left: 1%;
-  overflow: auto;
-  height: 100vh;
+  overflow: hidden;
+}
+#roomsContainer {
+  overflow-y: scroll;
+  height: 82.5%;
+  margin-top: 3%;
 }
 #roomsList h1 {
   color: white;
 }
-#room {
+.room {
   align-self: center;
   margin-top: 10px;
-  width: 80%;
   height: 40px;
-  display: flex;
-}
-#room button {
-  width: 20%;
-  font-size: 20px;
-  background: rgb(145, 51, 52);
-  color: white;
-  border: none;
+  width: 100%;
   cursor: pointer;
-  border-radius: 10px;
-  margin-left: 10px;
+  display: flex;
+  transition: ease 0.1s;
+  animation-name: roomWidth;
+  animation-duration: 0.2s;
+}
+.room button {
+  font-size: 20px;
+  background: #409c5a;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 #room button:focus {
   outline: none;
 }
-#roomDetails {
+.roomDetails {
   width: 80%;
+  margin: 0 auto 0 auto;
   font-size: 16px;
   border-radius: 10px !important;
   display: flex;
-  background: #385584;
+  background: #00000073;
   color: white;
 }
-#availableroomname {
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.availableroomname {
+  width: 150px;
+  margin: auto;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  padding-left: 5px;
+}
+.availableroomname::-webkit-scrollbar {
+  display: none;
+}
+.availableroomdetails {
+  width: 100%;
+  display: flex;
+}
+.room input {
+  width: 100px;
+  margin-left: 10px;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  animation: roomInputWidth;
+  animation-duration: 0.2s;
+}
+@keyframes roomInputWidth {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+@keyframes roomWidth {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.room input::placeholder {
+  text-align: center;
+  font-size: 10px;
+}
+.room:hover {
+  transform: scale(1.05);
 }
 #roomadmin {
   width: 100%;
@@ -57,6 +106,7 @@
   width: 40%;
   height: 25px;
   border-radius: 10px;
+  text-align: center;
   border: 1px solid;
   align-self: center;
   padding-left: 5px;
@@ -64,11 +114,14 @@
   outline: none !important;
   box-shadow: 0 !important;
 }
+#joinUsername::placeholder {
+  text-align: center;
+}
 #joinUsernameButton {
   background: rgb(146, 52, 52);
   color: white;
-  height: 25px;
-  border-radius: 20px;
+  height: 28px;
+  border-radius: 10px;
   cursor: pointer;
   border: none;
   margin-left: 2%;
