@@ -1,7 +1,9 @@
 let express = require("express");
+let path = require("path");
 let cors = require("cors");
 let app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, "./dist")));
 let http = require("http").createServer(app);
 let io = require("socket.io")(http);
 let socketIdToUsername = {};
