@@ -92,6 +92,6 @@ let manageSockets = function(socket) {
   });
 };
 io.on("connection", manageSockets);
-http.listen(5000, "127.0.0.1", function() {
-  console.log("Listening on port 5000");
+http.listen(process.env.PORT || 5000, function() {
+  console.log(`Server is listening`);
 });
