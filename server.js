@@ -25,7 +25,12 @@ function createRoom(data, socket) {
 }
 let manageSockets = function(socket) {
   socket.on("getRoomsList", function() {
-    socket.emit("takeRoomsList", roomsList);
+    socket.emit("takeRoomsList", [
+      ...roomsList.filter(room => {
+        delete room["roomkey"];
+        return room;
+      })
+    ]);
   });
   socket.on("authorisedToJoinRoom", (room, key) => {
     if (key === room.roomkey) {
