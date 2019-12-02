@@ -25,15 +25,18 @@ function createRoom(data, socket) {
 }
 let manageSockets = function(socket) {
   socket.on("getRoomsList", function() {
+    let uiRoomsList = JSON.parse(JSON.stringify(roomsList));
     socket.emit("takeRoomsList", [
-      ...roomsList.filter(room => {
+      ...uiRoomsList.filter(room => {
         delete room["roomkey"];
         return room;
       })
     ]);
   });
   socket.on("authorisedToJoinRoom", (room, key) => {
-    if (key === room.roomkey) {
+    let roomkey = [...roomsList].filter(r => r.roomId === room.roomId)[0]
+      .roomkey;
+    if (key === roomkey) {
       socket.emit("canJoinRoom", { canJoinRoom: true, room: room });
     } else {
       socket.emit("canJoinRoom", { canJoinRoom: false, room: room });
@@ -66,7 +69,14 @@ let manageSockets = function(socket) {
   socket.on("createRoom", function(data) {
     let room = createRoom(data, socket);
     roomsList.push(room);
-    io.emit("roomCreated", roomsList, room);
+    let uiRoomsList = JSON.parse(JSON.stringify(roomsList));
+    io.emit(
+      "roomCreated",
+      uiRoomsList.filter(room => {
+        delete room["roomkey"];
+        return room;
+      })
+    );
   });
 
   socket.on("disconnecting", () => {

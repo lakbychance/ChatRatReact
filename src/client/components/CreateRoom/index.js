@@ -28,7 +28,7 @@ class CreateRoom extends Component {
     });
     socket.on(
       "roomCreated",
-      function(roomsList, room) {
+      function(roomsList) {
         this.props.createRoom(roomsList);
       }.bind(this)
     );
