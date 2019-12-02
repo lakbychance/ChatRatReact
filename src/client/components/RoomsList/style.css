@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-image: linear-gradient(270deg, #102254, #003e7a);
+  background-image: linear-gradient(270deg, #18181b, #191513);
   border-radius: 20px;
   margin-left: 1%;
   overflow: hidden;
@@ -29,8 +29,9 @@
 }
 .room button {
   font-size: 20px;
-  background: #409c5a;
+  background-image: linear-gradient(45deg, #219898, #6cff2e);
   color: white;
+  font-weight: 550;
   border-color: white;
   cursor: pointer;
   border-top-right-radius: 10px;
@@ -45,7 +46,8 @@
   font-size: 16px;
   border-radius: 10px !important;
   display: flex;
-  background: #00000073;
+  background: #3f51b5;
+  background-image: linear-gradient(45deg, #3a1675, transparent);
   color: white;
 }
 .availableroomname {
@@ -90,7 +92,7 @@
 }
 .room input::placeholder {
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 .room:hover {
   transform: scale(1.05);
@@ -107,6 +109,7 @@
   height: 25px;
   border-radius: 10px;
   text-align: center;
+  font-weight: bold;
   border: 1px solid;
   align-self: center;
   padding-left: 5px;
@@ -118,7 +121,7 @@
   text-align: center;
 }
 #joinUsernameButton {
-  background: rgb(146, 52, 52);
+  background-image: linear-gradient(45deg, #ca3271, #b30b0bf7);
   color: white;
   height: 28px;
   border-radius: 10px;

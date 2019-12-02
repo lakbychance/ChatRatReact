@@ -63,7 +63,7 @@ class RoomsList extends Component {
           <input
             id="joinUsername"
             name="username"
-            placeholder="Enter user name to view rooms"
+            placeholder="Enter user name"
             value={this.state.username}
             onChange={this.handleJoiningDetails}
           />

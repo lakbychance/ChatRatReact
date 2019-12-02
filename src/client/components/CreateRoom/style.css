@@ -1,17 +1,18 @@
 #createRoom {
   width: 65%;
-  /* background: #4d4569; */
-  /* background: url("../../../assets/images/ChatRat.gif") no-repeat; */
-  background: url("../../../assets/images/Frost.jpg");
-  /* background: black; */
-  background-size: cover;
+  background: url("../../../assets/images/rotateLoader.gif");
+  background-size: auto;
   background-position: center;
+  display: flex;
+  filter: contrast(1.2);
+  flex-direction: column;
   border-radius: 20px;
 }
 #createRoomForm {
   display: flex;
   flex-direction: column;
-  margin-top: 25%;
+  margin: auto;
+  width: 65%;
   align-items: center;
 }
 #createRoomForm h1,
@@ -30,10 +31,13 @@ label {
   text-align: center;
 }
 #createRoomForm input {
-  width: 40%;
-  height: 25px;
+  width: 35%;
+  height: 30px;
   border-radius: 20px;
-  padding-left: 5px;
+  font-size: 15px;
+  padding: 0 3% 0 3%;
+  font-weight: bold;
+  background: #fffafa99;
   margin-top: 10px;
   border: none;
 }
@@ -62,7 +66,7 @@ label {
 }
 #createRoomButton:hover {
   transform: scale(1.05);
-  background: #423982;
+  background: #294986;
 }
 #createRoomButton:focus {
   outline: none;
