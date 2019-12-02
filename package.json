@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "dev": "webpack-dev-server --mode=development & node server.js",
     "prod": "webpack --env.mode production"
   }
 }

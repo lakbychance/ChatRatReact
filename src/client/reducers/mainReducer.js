@@ -1,7 +1,13 @@
 import actionTypes from "../action-types/action-types";
 import socketIOClient from "socket.io-client";
+let socketClient = null;
+if (process.env.NODE_ENV === "development") {
+  socketClient = socketIOClient("http://localhost:5000");
+} else {
+  socketClient = socketIOClient();
+}
 let initialState = {
-  socket: socketIOClient(),
+  socket: socketClient,
   roomsList: [],
   username: "",
   room: {}
