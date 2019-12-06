@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import CreateRoom from "../CreateRoom";
 import RoomsList from "../RoomsList";
+import "./index.css";
 const LandingPage = () => {
   return (
-    <div id="landingPage" style={{ display: "flex", height: "98vh" }}>
+    <div id="landingPage">
       <CreateRoom />
       <RoomsList />
     </div>

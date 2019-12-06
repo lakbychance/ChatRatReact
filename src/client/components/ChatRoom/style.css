@@ -55,3 +55,22 @@
     height: 98vh;
   }
 }
+@media only screen and (max-width: 1024px) {
+  #chatRoom {
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 196vh;
+  }
+  #chatBox {
+    width: 100%;
+    height: 50%;
+  }
+  #chatBoard {
+    height: 90vh;
+  }
+  #membersBoard {
+    width: 100%;
+    height: 50%;
+    margin-top: 1%;
+  }
+}
