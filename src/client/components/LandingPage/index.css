@@ -18,3 +18,8 @@
     margin-top: 1%;
   }
 }
+@media only screen and (orientation: portrait) {
+  #createRoomForm input {
+    width: 60%;
+  }
+}
