@@ -5,6 +5,7 @@
   background-image: linear-gradient(180deg, #ffffff, #215d88 85%);
   animation: chatRoomSize;
   animation-duration: 0.3s;
+  overflow: hidden;
 }
 #chatBox {
   width: 70%;
