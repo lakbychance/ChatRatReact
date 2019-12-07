@@ -21,5 +21,6 @@
 @media only screen and (orientation: portrait) {
   #createRoomForm input {
     width: 60%;
+    max-width: 190px;
   }
 }
