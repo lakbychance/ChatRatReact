@@ -60,7 +60,6 @@
 @media only screen and (max-width: 1024px) {
   #chatRoom {
     flex-direction: column;
-    overflow-y: scroll;
     height: 98vh;
   }
   #chatBox {
@@ -68,7 +67,7 @@
     height: 100%;
   }
   #chatBoard {
-    height: 90vh;
+    height: 84vh;
   }
   #membersBoard {
     display: none;
