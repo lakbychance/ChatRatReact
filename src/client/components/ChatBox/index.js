@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
+import { Popover, PopoverBody } from "reactstrap";
+import RoomMembers from "../RoomMembers/index";
 class ChatBox extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isPopoverOpen: false
+    };
     this.handleTyping = this.handleTyping.bind(this);
     this.handleChatMessage = this.handleChatMessage.bind(this);
+    this.handlePopover = this.handlePopover.bind(this);
   }
+
   componentDidMount() {
     let socket = this.props.socket;
     socket.on(
@@ -56,6 +63,9 @@ class ChatBox extends Component {
       }.bind(this)
     );
   }
+  handlePopover() {
+    this.setState({ isPopoverOpen: !this.state.isPopoverOpen });
+  }
   handleChatMessage() {
     let socket = this.props.socket;
     let message = document.getElementById("m").value;
@@ -95,6 +105,7 @@ class ChatBox extends Component {
     let chatBoard = document.getElementById("chatBoard");
     chatBoard.scrollTo(0, chatBoard.scrollHeight);
   }
+
   render() {
     return (
       <div>
@@ -111,6 +122,29 @@ class ChatBox extends Component {
           />
           <button onClick={this.handleChatMessage}>Send</button>
         </form>
+        <div id="onlineMobile">
+          {this.props.room && this.props.room.members ? (
+            <p>
+              Online users -{" "}
+              {
+                this.props.room.members.filter(
+                  member => member.username !== null
+                ).length
+              }
+            </p>
+          ) : null}
+          <Popover
+            placement="bottom"
+            isOpen={this.state.isPopoverOpen}
+            target="onlineMobile"
+            toggle={this.handlePopover}
+          >
+            <div id="publicRoomName">
+              {this.props.room.roomname}-{this.props.room.roomId}
+            </div>
+            <RoomMembers />
+          </Popover>
+        </div>
       </div>
     );
   }
@@ -118,7 +152,4 @@ class ChatBox extends Component {
 const mapStateToProps = function(store) {
   return store;
 };
-export default connect(
-  mapStateToProps,
-  null
-)(ChatBox);
+export default connect(mapStateToProps, null)(ChatBox);

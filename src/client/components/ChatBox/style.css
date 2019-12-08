@@ -139,3 +139,20 @@ form button:focus {
   overflow: scroll;
   background-image: linear-gradient(180deg, #1e1e27, black 171%);
 }
+#onlineMobile {
+  width: 80%;
+  height: 2rem;
+  display: flex;
+  border-radius: 20px;
+  background-image: linear-gradient(45deg, #3759d6, #09c710);
+  display: none;
+  margin-top: 1%;
+}
+#onlineMobile p {
+  margin: auto;
+}
+#chatBox > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
