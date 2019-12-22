@@ -5,6 +5,7 @@ import ChatRoom from "./client/components/ChatRoom/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./client/store/store";
+import { registerSW } from "./swHelper";
 import "./index.css";
 ReactDOM.render(
   <Provider store={store}>
@@ -15,3 +16,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+registerSW();

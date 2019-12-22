@@ -3,6 +3,12 @@ let path = require("path");
 let cors = require("cors");
 let app = express();
 app.use(cors());
+// app.get("*.js", function(req, res, next) {
+//   req.url = req.url + ".gz";
+//   res.set("Content-Encoding", "gzip");
+//   res.set("Content-Type", "text/javascript");
+//   next();
+// });
 app.use(express.static(path.join(__dirname, "./dist")));
 let http = require("http").createServer(app);
 let io = require("socket.io")(http);
